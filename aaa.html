@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kakao Map Custom Overlay Example</title>
+    <style>
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+        .customoverlay {
+            position: relative;
+            bottom: 60px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            border-bottom: 2px solid #ddd;
+            float: left;
+            font-size: 12px;
+            padding: 5px;
+            background: #fff;
+        }
+        .customoverlay .title {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .overlay_info {
+            border-radius: 6px;
+            margin-bottom: 12px;
+            float: left;
+            position: relative;
+            border: 1px solid #ccc;
+            border-bottom: 2px solid #ddd;
+            background-color: #fff;
+        }
+        .overlay_info:nth-of-type(n) {
+            border: 0;
+            box-shadow: 0px 1px 2px #888;
+        }
+        .overlay_info a {
+            display: block;
+            background: #d95050 url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png) no-repeat right 14px center;
+            text-decoration: none;
+            color: #fff;
+            padding: 12px 36px 12px 14px;
+            font-size: 14px;
+            border-radius: 6px 6px 0 0;
+        }
+        .overlay_info a strong {
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/fire.png) no-repeat;
+            padding-left: 27px;
+        }
+        .overlay_info .desc {
+            padding: 14px;
+            position: relative;
+            min-width: 190px;
+            height: 56px;
+        }
+        .overlay_info img {
+            vertical-align: top;
+        }
+        .overlay_info .address {
+            font-size: 12px;
+            color: #333;
+            position: absolute;
+            left: 70px;
+            right: 14px;
+            top: 14px;
+            white-space: normal;
+        }
+        .overlay_info:after {
+            content: '';
+            position: absolute;
+            margin-left: -11px;
+            left: 50%;
+            bottom: -12px;
+            width: 22px;
+            height: 12px;
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png) no-repeat 0 bottom;
+        }
+    </style>
+</head>
+<body>
+    <div id="map" style="width:600px; height:600px;">
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1a9f911737f3f40de86644ebfede35f0"></script>
+    </div>
+    <script>
+        var mapContainer = document.getElementById('map'),
+            mapOption = {
+                center: new kakao.maps.LatLng(36.71059565, 127.4245092),
+                level: 3
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        var content = `
+            <div class="overlay_info">
+                <a href="./fireImg.png" target="_blank"><strong>공동구 화재 발생 지점</strong></a>
+                <div class="desc">
+                    <img src="./fireImg.png" alt="화재" width="40" height="50">
+                    <span class="address">주소: 충청북도 청주시 청원구 오창읍 000-00 </br>전화: 043-111-1234</span>
+                </div>
+            </div>
+        `;
+
+        var position = new kakao.maps.LatLng(36.71059565, 127.4245092); //36.71111, 127.4256
+
+        var customOverlay = new kakao.maps.CustomOverlay({
+            map: map,
+            position: position,
+            content: content,
+            yAnchor: 1
+        });
+
+        kakao.maps.event.addListener(marker, 'click', function() {
+            customOverlay.setMap(map);
+        });
+    </script>
+</body>
+</html>

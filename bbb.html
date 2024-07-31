@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Chart Animation with Slider</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script defer src="case24-r.js"></script>
+</head>
+<body>
+    <div id="scatterPlot1" style="width:600px;height:400px;"></div>
+    <div id="scatterPlot2" style="width:600px;height:400px;"></div>
+    <input type="range" id="slider" min="0" max="2401" step="60" value="0">
+    <span id="sliderValue">Current Frame: 1</span>
+    <div>
+        <button id="playButton">Play</button>
+        <button id="stopButton">Stop</button>
+    </div>
+</body>
+</html>
