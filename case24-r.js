@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function createLegendLoc(loc) {
         const positions = {
             'top-left': {x: 0, y: 1, xanchor: 'left', yanchor: 'top'},
-            'top-center': {x: 0.5, y: 1, xanchor: 'center', yanchor: 'top'},
-            'top-right': {x: 1, y: 1, xanchor: 'right', yanchor: 'top'},
+            'top-center': {x: 0.1, y: 1.1, xanchor: 'center', yanchor: 'top'},
+            'top-right': {x: 1, y: 1.1, xanchor: 'right', yanchor: 'top'},
             'bottom-left': {x: 0, y: 0, xanchor: 'left', yanchor: 'bottom'},
-            'bottom-center': {x: 0.5, y: 0, xanchor: 'center', yanchor: 'bottom'},
-            'bottom-right': {x: 1, y: 0, xanchor: 'right', yanchor: 'bottom'},
-            'right': {x: 1, y: 0.5, xanchor: 'left', yanchor: 'middle'},
-            'left': {x: 0, y: 0.5, xanchor: 'right', yanchor: 'middle'},
-            'top': {x: 0.5, y: 1.1, xanchor: 'center', yanchor: 'bottom'}, // 위쪽 중앙
-            'bottom': {x: 0.5, y: -0.2, xanchor: 'center', yanchor: 'top'}  // 아래쪽 중앙
+            'bottom-center': {x: 0.1, y: 0, xanchor: 'center', yanchor: 'bottom'},
+            'bottom-right': {x: 0.1, y: 0, xanchor: 'right', yanchor: 'bottom'},
+            'right': {x: 0.1, y: 0.1, xanchor: 'left', yanchor: 'middle'},
+            'left': {x: 0, y: 0.1, xanchor: 'right', yanchor: 'middle'},
+            'top': {x: 0.1, y: 0.5, xanchor: 'center', yanchor: 'bottom'}, // 위쪽 중앙
+            'bottom': {x: 0.1, y: -0.2, xanchor: 'center', yanchor: 'top'}  // 아래쪽 중앙
         };
         return positions[loc] || positions['top-right']; // 기본값을 'top-right'로 설정
     }
@@ -50,26 +50,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 초기 차트 그리기
     var layout1 = {
-        title: 'Fire Simulation Chart 1: Tunnel Side View',
+        title: '화재 시뮬레이션 공동구 측면도',
         xaxis: { title: 'Tunnel Horizontal Position(m)', range: [-745, 650] , tickvals: vent_xposition, ticktext: vent_xposition_str}, //수정
         yaxis: { title: 'Tunnel Vertical Position(m)', range: [0, 40], tickvals: [0, 10, 20, 30, 40, 50], ticktext: ['0', '10', '20', '30', '40', '50'] },
         legend : createLegendLoc('top-right'),// 범례 배치
         showlegend: true, // 범례를 항상 표시하도록 설정
         font: {
             family: 'Arial, sans-serif',
-            size: 12,
+            size: 11,
             color: '#000'
         },
     };
 
     var layout2 = {
-        title: 'Fire Simulation Chart 2: Sensed Data',
+        title: '화재 시뮬레이션 가시거리 및 온도 데이터',
         xaxis: { title: 'Tunnel Horizontal Position(m)',  range: [-750, 655] , tickvals: vent_xposition, ticktext: vent_xposition_str}, //수정
         yaxis: { title: 'Visibility(m),Temperature(c)', range: [0, 700], tickvals: [0, 30, 60, 100, 200, 300, 400, 500, 600, 700], ticktext: ['0', '30', '60', '100', '200', '300', '400', '500', '600', '700'] },
         legend : createLegendLoc('top-right'),// 범례 배치
         font: {
             family: 'Arial, sans-serif',
-            size: 12,
+            size: 11,
             color: '#000'
         },
     };
