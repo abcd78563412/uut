@@ -5,14 +5,154 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카카오 API (지도)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- sylesheet -->
     <script src="kakaoMpa.js"></script>
+    <style>
+        caption {
+          caption-side: top;
+        }
+    </style>
 </head>
 <body>
-    <div id="map" style="width:600px; height:600px;">
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df1689942ad7df73b3abaa25f68a45fb"></script>
-    </div>
+<div id="contact" style="width:600px; height:600px; margin-left:100px">
+    <h4 class="conH4">[공동구팀] 오창공동구 부서 연락처</h4>
+    <table class="table">
+        <caption>부서/직원 목록</caption>
+        <colgroup>
+            <col style="width:70%">
+            <col>
+        </colgroup>
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">담당업무</th>
+            <th scope="col">전화번호</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <td class="text_left">
+                <ul>
+                    <li>공동구팀 운영 및 관리 총괄</li>
+                    <li>공동구팀 중장기 계획 수립</li>
+                    <li>점용기관 관련 업무협의 및 관리협의회 추진</li>
+                    <li>상황 통제실 근무 (교대근무)</li>
+                    <li>이사장, 본부장 및 부장 지시사항 처리</li>
+                </ul>
+            </td>
+
+            <td>043-270-7311</td>
+        </tr>
+        <tr>
+
+            <td class="text_left">
+                <ul>
+                    <li>토목분야 시설 및 물품 유지·관리·설계·감독 총괄</li>
+                    <li>비문관리 및 개인정보보호 (영상정보포함) 관련업무</li>
+                    <li>행동메뉴얼 내용 협의·수정·편집</li>
+                    <li>팀 서무 업무 (교육, 업무직 급여, 비품 및 재물조사포함)</li>
+                    <li>다부처 R&D사업 추진</li>
+                    <li>상황 통제실 근무 지원</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+
+            <td>043-270-7310</td>
+        </tr>
+        <tr>
+
+            <td class="text_left">
+                <ul>
+                    <li>기계분야 시설 및 물품 유지·관리·설계·감독 총괄</li>
+                    <li>상황실 및 사무실 냉ㆍ난방기 관리</li>
+                    <li>내부 시설물 결로관리</li>
+                    <li>상황 통제실 근무(교대근무)</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+        </tr>
+        <tr>
+            <td class="text_left">
+                <ul>
+                    <li> 토목분야 시설 및 물품 유지·관리·설계·감독 업무</li>
+                    <li>팀 서무 업무（교육)</li>
+                    <li>다부처 R&D사업 추진 지원</li>
+                    <li>상황 통제실 근무(교대근무) 지원</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+        </tr>
+        <tr>
+            <td class="text_left">
+                <ul>
+                    <li> 재난 안전ㆍ방재 업무 (현황관리포함)</li>
+                    <li>공동구 소방안전관리자 선임업무</li>
+                    <li>다부처 R&D사업 추진</li>
+                    <li>소방분야 시설 및 물품 유지·관리·설계·감독</li>
+                    <li>소방 및 방재(통신)설비 관리 업무</li>
+                    <li>내·외부 시설물 영선 보수</li>
+                    <li>상황 통제실 근무(교대근무)</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+        </tr>
+        <tr>
+
+            <td class="text_left">
+                <ul>
+                    <li>기계분야 시설 및 물품 유지·관리·설계·감독 총괄</li>
+                    <li>상황실 및 사무실 냉ㆍ난방기 관리</li>
+                    <li>내부 시설물 결로관리</li>
+                    <li>상황 통제실 근무(교대근무)</li>
+                    <li>내·외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+
+        </tr>
+        <tr>
+            <td class="text_left">
+                <ul>
+                    <li>전기, 전력 분야 시설 및 물품 유지·관리·설계·감독 총괄</li>
+                    <li>비상 발전시설 유지관리</li>
+                    <li>CCTV 유지·관리 (개인정보보호(영상정보)관련업무</li>
+                    <li>상황 통제실 근무(교대근무)</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+        </tr>
+        <tr>
+            <td class="text_left">
+                <ul>
+                    <li>전기, 전력 분야 시설 및 물품 유지·관리·설계·감독</li>
+                    <li>비상 발전시설 유지관리</li>
+                    <li>CCTV 유지·관리 (개인정보보호(영상정보)관련업무</li>
+                    <li>상황 통제실 근무(교대근무)</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+            <td>043-270-7312</td>
+        </tr>
+        <tr>
+
+            <td class="text_left">
+                <ul>
+                    <li>상황 통제실 근무(교대근무, 방호관련 업무)</li>
+                    <li>내 · 외부 시설물 영선 보수</li>
+                </ul>
+            </td>
+
+            <td>043-270-7312</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
