@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>main</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         /* 전체 페이지 스크롤을 비활성화 */
         html, body {
@@ -11,55 +13,10 @@
             margin: 0;
             overflow: hidden; /* 페이지 전체 스크롤 비활성화 */
         }
-        /* 내비게이션 바 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #343a40;
-            color: white;
-            height: 25px; /* 내비게이션 바의 높이 */
-            padding: 0 10px; /* 패딩을 줄여서 높이에 맞게 조정 */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-sizing: border-box; /* 패딩을 포함한 높이 계산 */
-        }
-        .navbar-brand {
-            font-size: 0.8rem; /* 높이에 맞게 폰트 크기 조정 */
-            font-weight: bold;
-        }
-        /* 메뉴 항목 */
-        .navbar-nav {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            height: 100%; /* 네비게이션 바의 전체 높이 차지 */
-            align-items: center; /* 수직 중앙 정렬 */
-        }
-        .nav-item {
-            margin-right: 10px; /* 메뉴 항목 간의 간격 */
-        }
-        .nav-link {
-            text-decoration: none;
-            color: white;
-            padding: 0 10px; /* 패딩 조정 */
-            display: block;
-            font-size: 0.8rem; /* 폰트 크기 조정 */
-            line-height: 25px; /* 내비게이션 바 높이에 맞는 수직 중앙 정렬 */
-        }
-        .nav-link:hover, .nav-link.active {
-            background-color: #495057; /* 선택된 메뉴 항목의 배경색 */
-            border-radius: 0.25rem; /* 배경색이 부드럽게 보이도록 모서리 둥글게 */
-        }
-        /* 콘텐츠 영역 */
+        /* 콘텐츠 영역만 스크롤 가능하도록 설정 */
         .content {
-            height: calc(100% - 25px); /* 내비게이션 바의 높이를 고려한 콘텐츠 영역 높이 */
-            margin-top: 25px; /* 내비게이션 바의 높이 */
+            height: calc(100% - 200px); /* 내비게이션 바의 높이를 고려한 콘텐츠 영역 높이 */
+            margin-top: 200px; /* 내비게이션 바의 높이 */
             overflow-y: auto; /* 콘텐츠 영역에서만 수직 스크롤 가능 */
         }
         iframe {
@@ -67,14 +24,32 @@
             height: 100%;
             border: none;
         }
-        /* 모바일 화면에서 메뉴 항목의 배치 조정 */
+        /* 내비게이션 바의 "Fixed navbar" 텍스트 왼쪽 마진 추가 */
+        .navbar-brand {
+            margin-left: 50px;
+        }
+        /* 선택된 메뉴 항목의 배경색 */
+        .nav-item .nav-link.active {
+            background-color: #495057; /* 선택된 메뉴 항목의 배경색 */
+            border-radius: 0.25rem; /* 배경색이 부드럽게 보이도록 모서리 둥글게 */
+        }
+        .navbar-custom {
+            height: 200px;
+        } 
+        /* 메뉴 항목을 가로로 배치 */
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center; /* 수직 중앙 정렬 */
+        }
+        .nav-item {
+            margin-right: 20px; /* 메뉴 항목 간의 간격 */
+        }
+        /* 모바일 화면에서 네비게이션 바의 메뉴가 항상 보이도록 설정 */
         @media (max-width: 767px) {
             .navbar-nav {
-                flex-direction: column;
-                align-items: center; /* 메뉴를 중앙 정렬 */
-            }
-            .nav-item {
-                margin: 5px 0; /* 메뉴 항목 간의 간격 조정 */
+                flex-direction: row;
+                justify-content: center; /* 메뉴를 중앙 정렬 */
             }
         }
     </style>
@@ -82,23 +57,25 @@
 <body>
 
 <!-- 고정된 내비게이션 바 -->
-<nav class="navbar">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top navbar-custom">
     <a class="navbar-brand" href="#">Brand</a>
-    <!-- 메뉴 항목 -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="aaa.html" target="contentFrame">aaa</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="bbb.html" target="contentFrame">bbb</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="ccc.html" target="contentFrame">ccc</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="ddd.html" target="contentFrame">ddd</a>
-        </li>
-    </ul>
+    <!-- 메뉴 항목 (토글 버튼 제거) -->
+    <div class="navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+                <a class="nav-link" href="aaa.html" target="contentFrame">aaa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="bbb.html" target="contentFrame">bbb</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ccc.html" target="contentFrame">ccc</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ddd.html" target="contentFrame">ddd</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <!-- 콘텐츠 영역과 iframe -->
@@ -106,8 +83,10 @@
     <iframe name="contentFrame" src="aaa.html"></iframe>
 </div>
 
-<!-- 자바스크립트로 메뉴 항목 클릭 시 활성화 상태를 업데이트하는 스크립트 -->
+<!-- Bootstrap JS 및 의존성 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFY0KsQw6X4I7L7ZIeLhgi8C3Uw63j0eRI5w4XtJkNeF5pJo9A5K9UwAMe" crossorigin="anonymous"></script>
 <script>
+    // 메뉴 항목 클릭 시 활성화 상태를 업데이트하는 스크립트
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             // 모든 nav-link 요소에서 'active' 클래스 제거
