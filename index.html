@@ -35,7 +35,18 @@
         }
         .navbar-custom {
             height: 200px;
-        }        
+        } 
+        /* 메뉴 항목을 가로로 배치 */
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+        }
+        .nav-item {
+            margin-right: 20px; /* 메뉴 항목 간의 간격 */
+        }
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="currentColor" stroke-width="2" d="M5 6h20M5 12h20M5 18h20"/%3E%3C/svg%3E');
+        }
     </style>
 </head>
 <body>
@@ -78,4 +89,11 @@
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             // 모든 nav-link 요소에서 'active' 클래스 제거
-            document.que
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            // 클릭한 요소에 'active' 클래스 추가
+            this.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
